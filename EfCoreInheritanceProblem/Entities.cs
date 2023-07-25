@@ -8,8 +8,8 @@ public class Name
         LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
     }
 
-    public string FirstName { get; private init; }
-    public string LastName { get; private init; }
+    public string FirstName { get; }
+    public string LastName { get; }
 }
 
 public abstract class Parent

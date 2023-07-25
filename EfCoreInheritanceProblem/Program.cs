@@ -16,5 +16,8 @@ await using (var ctx2 = new MyDbContext())
 
 await using (var ctx3 = new MyDbContext())
 {
-    var entities = await ctx3.Parents.ToListAsync();
+    var childOnes = await ctx3.ChildOnes.ToListAsync();
+    var childTwos = await ctx3.ChildTwos.ToListAsync();
+    // NEXT LINE CAUSES EXCEPTION
+    var parents = await ctx3.Parents.ToListAsync();
 }

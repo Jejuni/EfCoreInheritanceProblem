@@ -27,6 +27,13 @@ public class MyDbContext : DbContext
                 .HasValue<ChildTwo>("two");
         });
 
-        modelBuilder.Entity<ChildTwo>(b => { b.OwnsOne(x => x.Name); });
+        modelBuilder.Entity<ChildTwo>(b =>
+        {
+            b.OwnsOne(x => x.Name, nameBuilder =>
+            {
+                nameBuilder.Property(x => x.FirstName);
+                nameBuilder.Property(x => x.LastName);
+            });
+        });
     }
 }
